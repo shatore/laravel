@@ -14,8 +14,8 @@ node('php'){
 
     stage('config') {
         parallel(
-            'config cache': {
-                echo 'Tarefa paralela 01'
+            'Copy .env file': {
+                echo 'cp .env.example .env'
             },
             'config route': {
                 echo 'Tarefa Paralela 02'
