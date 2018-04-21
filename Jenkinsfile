@@ -38,4 +38,8 @@ node('php'){
     stage('Docker Ship') {
         sh 'docker push jeffersonsouza/laravel:$BUILD_NUMBER'
     }
+    
+    stage('Docker Cleanup') {
+        sh 'docker rmi -f jeffersonsouza/laravel:$BUILD_NUMBER'
+    }
 }
