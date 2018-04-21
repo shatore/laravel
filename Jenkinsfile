@@ -23,9 +23,9 @@ node('php'){
         )
     }
 
-    stage('Tests') {
-        sh 'php ./vendor/bin/phpunit'
-    }
+    //stage('Tests') {
+    //    sh 'php ./vendor/bin/phpunit'
+    //}
 
     stage('Build'){
         sh 'composer install --no-scripts --prefer-dist --no-dev --ignore-platform-reqs'
