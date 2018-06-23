@@ -15,20 +15,20 @@ node('php'){
     stage('config') {
         parallel(
             'Copy .env file': {
-                echo 'cp .env.example .env'
+                sh 'cp .env.example .env'
             },
-            'config route': {
+            'config cache': {
                 echo 'Tarefa Paralela 02'
             }
         )
     }
 
-    //stage('Tests') {
-    //    sh 'php ./vendor/bin/phpunit'
-    //}
+    stage('Tests') {
+        sh 'php ./vendor/bin/phpunit'
+    }
 
     stage('Build'){
-        sh 'composer install --no-scripts --prefer-dist --no-dev --ignore-platform-reqs'
+        sh 'composer install --prefer-dist --no-dev --ignore-platform-reqs'
     }
 
     stage('Docker Build') {
